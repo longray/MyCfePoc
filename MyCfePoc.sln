@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CfePocApp", "CfePocApp\CfePocApp.csproj", "{69E04F9B-8F86-4E8E-9E89-1402FFC3A7A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernUI", "ModernUI\ModernUI.csproj", "{720415A4-0A38-40A5-A446-205E7AC021CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{69E04F9B-8F86-4E8E-9E89-1402FFC3A7A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69E04F9B-8F86-4E8E-9E89-1402FFC3A7A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69E04F9B-8F86-4E8E-9E89-1402FFC3A7A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720415A4-0A38-40A5-A446-205E7AC021CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720415A4-0A38-40A5-A446-205E7AC021CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720415A4-0A38-40A5-A446-205E7AC021CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720415A4-0A38-40A5-A446-205E7AC021CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
