@@ -15,6 +15,7 @@
             <ColumnDefinition Width="220" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Examples:Buttons />
+        <Examples:Buttons Grid.Row="0" Grid.Column="0" />
+        <Examples:Texts   Grid.Row="0" Grid.Column="1" />
     </Grid>
 </Window>

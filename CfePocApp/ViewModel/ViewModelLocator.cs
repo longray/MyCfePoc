@@ -38,7 +38,8 @@ namespace CfePocApp.ViewModel
                 SimpleIoc.Default.Register<IDataService, DataService>();
             }
 
-            SimpleIoc.Default.Register<MainViewModel>();
+            //SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<TextsViewModel>();
         }
 
         /// <summary>
@@ -47,11 +48,19 @@ namespace CfePocApp.ViewModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
-        public MainViewModel Main
+        //public MainViewModel Main
+        //{
+        //    get
+        //    {
+        //        return ServiceLocator.Current.GetInstance<MainViewModel>();
+        //    }
+        //}
+
+        public TextsViewModel Texts
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return ServiceLocator.Current.GetInstance<TextsViewModel>();
             }
         }
 

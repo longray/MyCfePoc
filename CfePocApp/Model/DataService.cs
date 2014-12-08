@@ -4,11 +4,9 @@ namespace CfePocApp.Model
 {
     public class DataService : IDataService
     {
-        public void GetData(Action<DataItem, Exception> callback)
+        public void GetData(Action<TextsModel, Exception> callback)
         {
-            // Use this to connect to the actual data service
-
-            var item = new DataItem("Welcome to MVVM Light");
+            var item = new TextsModel(14);
             callback(item, null);
         }
     }

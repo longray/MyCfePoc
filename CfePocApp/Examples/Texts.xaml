@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mui="clr-namespace:ModernUI.Windows.Controls;assembly=ModernUI"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
-             d:DesignHeight="600" d:DesignWidth="300">
+             d:DesignHeight="600" d:DesignWidth="300"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras"
+             DataContext="{Binding Texts, Source={StaticResource Locator}}">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -27,19 +28,30 @@
             <TextBlock Text="支行未持有客户数量占比最低值 | SmallBold" Style="{StaticResource SmallBold}" Margin="0,0,0,8"/>
             <TextBlock Text="88.76% ▲ 71.11% ▼ ￥1,234,567,890.00 | Fixed" Style="{StaticResource Fixed}" Margin="0,0,0,32"  />
 
-            <TextBlock Text="文本框、密码" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
-            <Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <TextBlock Text="文本框、密码" Style="{StaticResource Heading2}" Margin="0,0,100,0"/>
+                <Button Content="切换大小">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <command:EventToCommand Command="{Binding Path=ChangeFontSizeCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </Button>
+            </StackPanel>
+            <Grid DataContext="{Binding  Path=TextsModel}">
                 <Grid.Resources>
                     <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
-                        <Setter Property="FontSize" Value="14"></Setter>
-                        <Setter Property="Margin" Value="0,0,5,0"></Setter>
+                        <Setter Property="FontSize" Value="{Binding Path = FontSize}"></Setter>
+                        <Setter Property="Margin" Value="0,1,5,1"></Setter>
                     </Style>
                     <Style TargetType="PasswordBox" BasedOn="{StaticResource {x:Type PasswordBox}}">
-                        <Setter Property="FontSize" Value="14"></Setter>
-                        <Setter Property="Margin" Value="0,0,5,0"></Setter>
+                        <Setter Property="FontSize" Value="{Binding FontSize}"></Setter>
+                        <Setter Property="Margin" Value="0,1,5,1"></Setter>
                     </Style>
                     <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
-                        <Setter Property="Margin" Value="5,0,0,0"></Setter>
+                        <Setter Property="FontSize" Value="{Binding FontSize}"></Setter>
+                        <Setter Property="Margin" Value="5,1,0,1"></Setter>
                         <Setter Property="VerticalAlignment" Value="Center" />
                     </Style>
                 </Grid.Resources>

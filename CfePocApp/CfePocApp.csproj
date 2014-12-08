@@ -82,7 +82,8 @@
     <Compile Include="Examples\Buttons.xaml.cs">
       <DependentUpon>Buttons.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModel\TextsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="Examples\Texts.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -111,7 +112,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DataItem.cs" />
+    <Compile Include="Model\TextsModel.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
