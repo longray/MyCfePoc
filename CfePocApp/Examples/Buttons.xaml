@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mui="clr-namespace:ModernUI.Windows.Controls;assembly=ModernUI"
              mc:Ignorable="d"
-             d:DesignHeight="600" d:DesignWidth="300">
+             
+             d:DesignHeight="730" d:DesignWidth="300">
+    <UserControl.Background>White</UserControl.Background>
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -78,7 +80,89 @@
                 <mui:ModernButton EllipseDiameter="48" IconWidth="32" IconHeight="32" EllipseStrokeThickness="2" />
                 <mui:ModernButton EllipseDiameter="64" IconWidth="48" IconHeight="48" EllipseStrokeThickness="2" />
             </StackPanel>
+            <TextBlock Text="多选按钮" Style="{StaticResource Title}" />
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource {x:Type CheckBox}}">
+                        <Setter Property="Margin" Value="10,0,0,5" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <CheckBox Grid.Row="0" Grid.Column="0">金融资产余额</CheckBox>
+                <CheckBox Grid.Row="0" Grid.Column="1">存款余额</CheckBox>
+                <CheckBox Grid.Row="1" Grid.Column="0">贷款余额</CheckBox>
+                <CheckBox Grid.Row="1" Grid.Column="1">理财产品余额</CheckBox>
+            </Grid>
+            <TextBlock Text="单选按钮" Style="{StaticResource Title}" />
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButton}">
+                        <Setter Property="Margin" Value="10,0,0,5" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <RadioButton Grid.Row="0" Grid.Column="0">金融资产余额</RadioButton>
+                <RadioButton Grid.Row="0" Grid.Column="1">存款余额</RadioButton>
+                <RadioButton Grid.Row="1" Grid.Column="0">贷款余额</RadioButton>
+                <RadioButton Grid.Row="1" Grid.Column="1">理财产品余额</RadioButton>
+            </Grid>
 
+            <TextBlock Text="下拉列表" Style="{StaticResource Title}" />
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource SmallLabel}">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="HorizontalAlignment" Value="Right" />
+                    </Style>
+                    <Style TargetType="ComboBox" BasedOn="{StaticResource ComboBox}">
+                        <Setter Property="Margin" Value="10,0,10,2" />
+                    </Style>                    
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label    Grid.Row="0" Grid.Column="0" >仅选择：</Label>
+                <ComboBox Grid.Row="0" Grid.Column="1" >
+                    <ComboBoxItem Content="Item 1" />
+                    <ComboBoxItem Content="Item 2" />
+                    <ComboBoxItem Content="Item 3" />
+                    <ComboBoxItem Content="Item 4" />
+                    <ComboBoxItem Content="Item 5" />
+                </ComboBox>
+                <Label    Grid.Row="1" Grid.Column="0" >可输入：</Label>
+                <ComboBox Grid.Row="1" Grid.Column="1" IsEditable="True" StaysOpenOnEdit="False">
+                    <ComboBoxItem Content="Item 1" />
+                    <ComboBoxItem Content="Item 2" />
+                    <ComboBoxItem Content="Item 3" />
+                    <ComboBoxItem Content="Item 4" />
+                    <ComboBoxItem Content="Item 5" />
+                </ComboBox>
+            </Grid>
         </StackPanel>
     </ScrollViewer>
 

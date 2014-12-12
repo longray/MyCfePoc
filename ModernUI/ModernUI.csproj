@@ -41,8 +41,17 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit">
+      <HintPath>..\SharedAssembly\WPFToolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobleResources.cs" />
+    <Compile Include="Windows\Converters\RowBackgroundConverter.cs" />
+    <Compile Include="Windows\Validators\FrameworkElementValidator.cs" />
+    <Compile Include="Windows\Controls\DataGridCheckBoxColumn.cs" />
+    <Compile Include="Windows\Controls\DataGridComboBoxColumn.cs" />
+    <Compile Include="Windows\Controls\DataGridTextColumn.cs" />
     <Compile Include="Windows\Converters\BooleanToFontWeightConverter.cs" />
     <Compile Include="Windows\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Windows\Converters\NullOrEmptyStringToVisibilityConverter.cs" />
@@ -53,9 +62,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\Calendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\CheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ContextMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Assets\Converters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\GridSplitter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\IconData.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +111,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\PasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\RadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\ScrollBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="CfePocApp.Examples.ModernDataGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:tk="http://schemas.microsoft.com/wpf/2008/toolkit"
+             xmlns:core="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:CfePocApp.Model"
+             xmlns:mui="clr-namespace:ModernUI.Windows.Controls;assembly=ModernUI"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="600"
+             DataContext="{Binding ModernDataGrid , Source={StaticResource Locator}}"
+             >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ModernUI;component/Assets/ModernUI.Light.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <DockPanel>
+        <DockPanel.Resources>
+            <!--Create list of enumeration values-->
+            <ObjectDataProvider x:Key="myEnum" MethodName="GetValues" ObjectType="{x:Type core:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type Type="local:OrderStatus"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+        </DockPanel.Resources>
+        <TextBlock DockPanel.Dock="Top" Text="数据表格 | DATAGRID" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+        <tk:DataGrid Name="DG" ItemsSource="{Binding Customers}" AutoGenerateColumns="False">
+            <tk:DataGrid.Columns>
+                <mui:DataGridTextColumn     Header="名字"     Binding="{Binding FirstName}" HorizontalAlignment="Right" />
+                <mui:DataGridTextColumn     Header="姓氏"     Binding="{Binding LastName}" />
+                <mui:DataGridTextColumn     Header="邮件"     Binding="{Binding Email}"    HorizontalAlignment="Center" />
+                <mui:DataGridCheckBoxColumn  Header="会员"    Binding="{Binding IsMember}" Width="80" />
+                <mui:DataGridComboBoxColumn Header="订单状态"  Width="*"
+                                           SelectedItemBinding="{Binding Status}" 
+                                           ItemsSource="{Binding Source={StaticResource myEnum}}" />
+            </tk:DataGrid.Columns>
+        </tk:DataGrid>
+    </DockPanel>
+
+</UserControl>

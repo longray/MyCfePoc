@@ -14,12 +14,18 @@ using System.Windows.Shapes;
 
 namespace CfePocApp.Examples
 {
+    using CfePocApp.ViewModel;
+
+    using GalaSoft.MvvmLight.Ioc;
+
+    using ModernUI;
+
     /// <summary>
     /// Buttons.xaml 的交互逻辑
     /// </summary>
-    public partial class Buttons : UserControl
+    public partial class ModernDataGrid : UserControl
     {
-        public Buttons()
+        public ModernDataGrid()
         {
             InitializeComponent();
             this.RegisterResources();
@@ -27,7 +33,7 @@ namespace CfePocApp.Examples
 
         private void RegisterResources()
         {
-            
+            //GlobleResources.ResourceDictionary = this.Resources;
         }
     }
 }

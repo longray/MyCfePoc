@@ -30,8 +30,16 @@
         <ResourceDictionary Source="ToolTip.xaml" />
         <ResourceDictionary Source="TreeView.xaml" />-->
         <ResourceDictionary Source="Button.xaml" />
+        <ResourceDictionary Source="Calendar.xaml" />
+        <ResourceDictionary Source="CheckBox.xaml" />
+        <ResourceDictionary Source="ContextMenu.xaml" />
+        <ResourceDictionary Source="ComboBox.xaml" />
+        <ResourceDictionary Source="DataGrid.xaml" />
+        <ResourceDictionary Source="GridSplitter.xaml" />
         <ResourceDictionary Source="Label.xaml" />
+        <ResourceDictionary Source="RadioButton.xaml" />
         <ResourceDictionary Source="PasswordBox.xaml" />
+        <ResourceDictionary Source="ScrollBar.xaml" />
         <ResourceDictionary Source="TextBlock.xaml" />
         <ResourceDictionary Source="TextBox.xaml" />
         <ResourceDictionary Source="IconData.xaml" />
@@ -44,6 +52,9 @@
     <!-- font settings -->
     <FontFamily x:Key="DefaultFontFamily">Microsoft YaHei UI</FontFamily>
     <sys:Double x:Key="DefaultFontSize">13</sys:Double>
+
+    <FontFamily x:Key="DefaultTableFontFamily">Microsoft YaHei UI</FontFamily>
+    <sys:Double x:Key="DefaultTableFontSize">12</sys:Double>
 
     <FontFamily x:Key="FixedFontFamily">Consolas,SimSun</FontFamily>
     <sys:Double x:Key="FixedFontSize">12</sys:Double>

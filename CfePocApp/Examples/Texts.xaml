@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="600" d:DesignWidth="300"
+             d:DesignHeight="730" d:DesignWidth="430"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras"
+             xmlns:tk="http://schemas.microsoft.com/wpf/2008/toolkit"
              DataContext="{Binding Texts, Source={StaticResource Locator}}">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -30,16 +31,17 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                 <TextBlock Text="文本框、密码" Style="{StaticResource Heading2}" Margin="0,0,100,0"/>
-                <Button Content="切换大小">
+                <!--<Button Content="切换大小">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <command:EventToCommand Command="{Binding Path=ChangeFontSizeCommand}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
+                </Button>-->
+                <Button Content="切换大小" Command="{Binding Path=ChangeFontSizeCommand}" />
 
-                </Button>
             </StackPanel>
-            <Grid DataContext="{Binding  Path=TextsModel}">
+            <Grid DataContext="{Binding  Path=Texts}">
                 <Grid.Resources>
                     <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
                         <Setter Property="FontSize" Value="{Binding Path = FontSize}"></Setter>
@@ -95,6 +97,47 @@
                     <Button>取消</Button>
                 </StackPanel>
             </Grid>
+
+            <StackPanel>
+                <TextBlock Text="弹出式菜单 | 右键菜单" Style="{StaticResource Heading2}" />
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <!--有问题，无法使用事件绑定-->
+                        <!--<ContextMenu x:Key="PopContextMenu1">
+                            <MenuItem Header="A:刷新" />
+                            <MenuItem Header="B:复制" Command="{Binding CopyCommand}" />
+                            <MenuItem Header="C:禁用" IsEnabled="False" />
+                            <MenuItem Header="D:选择" IsChecked="True" IsCheckable="True" />
+                            <MenuItem Header="E:禁用，选择" IsChecked="True" IsEnabled="False" />
+                            <Separator />
+                            <MenuItem Header="高级" >
+                                <MenuItem Header="1:刷新" />
+                                <Separator />
+                                <MenuItem Header="2:刷新" />
+                                <Separator />
+                                <MenuItem Header="3:再刷新" />
+                            </MenuItem>
+                        </ContextMenu>-->
+                        <Style  TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                            <Setter Property="Margin" Value="20,5"/>
+                        </Style>
+                        <Style  TargetType="Button" BasedOn="{StaticResource Button}">
+                            <Setter Property="Margin" Value="20,5"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <!--<Button Content="(XAML)菜单" Margin="20,5" Command="{Binding PopMenuCommand1}" CommandParameter="{StaticResource PopContextMenu1}" />-->
+                    <TextBox Name="TextBoxForMenu" Text="{Binding Texts.TextForMenu, Mode=TwoWay}"></TextBox>
+                    <Button Content="(代码)菜单" Command="{Binding PopMenuCommand2}" CommandParameter="{Binding Text ,ElementName=TextBoxForMenu}" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel>
+                <tk:Calendar Background="White">
+                    <tk:Calendar.BlackoutDates>
+                        <tk:CalendarDateRange Start="2014/12/12" End="2014/12/20" />
+                    </tk:Calendar.BlackoutDates>
+                </tk:Calendar>
+            </StackPanel>
         </StackPanel>
     </ScrollViewer>
 

@@ -5,8 +5,11 @@ using System.Text;
 
 namespace CfePocApp.Model
 {
+    using System.Collections.ObjectModel;
+
     public interface IDataService
     {
-        void GetData(Action<TextsModel, Exception> callback);
+        void GetTexts(Action<Texts, Exception> callback);
+        void GetCustomers(Action<ObservableCollection<Customer>, Exception> callback);
     }
 }

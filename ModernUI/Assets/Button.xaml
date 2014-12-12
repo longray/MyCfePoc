@@ -224,4 +224,8 @@
     <Style x:Key="{x:Type Button}"
            BasedOn="{StaticResource BaseButtonStyle}"
            TargetType="{x:Type Button}" />
+    
+    <Style x:Key="Button"
+           BasedOn="{StaticResource BaseButtonStyle}"
+           TargetType="{x:Type Button}" />
 </ResourceDictionary>
