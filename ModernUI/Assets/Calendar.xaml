@@ -1,8 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:p="http://schemas.microsoft.com/wpf/2008/toolkit">
+                    xmlns:c="clr-namespace:ModernUI.Windows.Controls"
+                    xmlns:p="clr-namespace:ModernUI.Windows.Controls.Primitives"
+                    >
 
-    <Style TargetType="p:Calendar">
+    <Style TargetType="c:Calendar">
         <Setter Property="Foreground" Value="{DynamicResource ItemText}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource ItemBorder}" />
@@ -13,7 +15,7 @@
 
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="p:Calendar">
+                <ControlTemplate TargetType="c:Calendar">
                     <StackPanel Name="PART_Root" HorizontalAlignment="Center">
                         <p:CalendarItem 
                             Name="PART_CalendarItem" 
@@ -35,11 +37,11 @@
                     <ControlTemplate.Resources>
                         <DataTemplate x:Key="DayTitleTemplate">
                             <TextBlock x:Name="Text" FontWeight="Bold" 
-                                       FontSize="{DynamicResource DefaultFontSize}" 
+                                       FontSize="{DynamicResource DefaultCalendarFontSize}" 
                                        Foreground="{DynamicResource ItemText}" 
                                        HorizontalAlignment="Center"
                                        Text="{Binding}"
-                                       Margin="0,6,0,6"
+                                       Margin="0,0,0,2"
                                        VerticalAlignment="Center"/>
                         </DataTemplate>
                     </ControlTemplate.Resources>
@@ -85,9 +87,11 @@
                                         HorizontalAlignment="Stretch" VerticalAlignment="Center" 
                                         FontWeight="Bold" 
                                         Focusable="False" />
-
+                                <!--这里月视图，这个表格里面放日期-->
                                 <Grid x:Name="PART_MonthView" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0"
-                                      Visibility="Visible" Margin="8" HorizontalAlignment="Center">
+                                      Visibility="Visible" Margin="8" HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"
+                                      >
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
@@ -109,7 +113,7 @@
                                 </Grid>
 
                                 <Grid x:Name="PART_YearView" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0"
-                                       Visibility="Hidden" Margin="8" HorizontalAlignment="Center">
+                                       Visibility="Hidden" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
@@ -130,7 +134,7 @@
                             <DataTrigger.Binding>
                                 <Binding Path="DisplayMode">
                                     <Binding.RelativeSource>
-                                        <RelativeSource Mode="FindAncestor" AncestorType="{x:Type p:Calendar}" />
+                                        <RelativeSource Mode="FindAncestor" AncestorType="{x:Type c:Calendar}" />
                                     </Binding.RelativeSource>
                                 </Binding>
                             </DataTrigger.Binding>
@@ -141,7 +145,7 @@
                             <DataTrigger.Binding>
                                 <Binding Path="DisplayMode">
                                     <Binding.RelativeSource>
-                                        <RelativeSource Mode="FindAncestor" AncestorType="{x:Type p:Calendar}" />
+                                        <RelativeSource Mode="FindAncestor" AncestorType="{x:Type c:Calendar}" />
                                     </Binding.RelativeSource>
                                 </Binding>
                             </DataTrigger.Binding>
@@ -153,11 +157,11 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    <!--选择日期按钮-->
     <Style TargetType="p:CalendarDayButton" >
         <Setter Property="MinWidth" Value="5"/>
         <Setter Property="MinHeight" Value="5"/>
-        <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}"/>
+        <Setter Property="FontSize" Value="{DynamicResource DefaultCalendarFontSize}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -168,15 +172,17 @@
                     <Grid Background="{TemplateBinding Background}">
                         <ContentPresenter
                                 x:Name="NormalText"
-                                TextElement.Foreground="{TemplateBinding Foreground}"
+                                TextElement.Foreground= "{TemplateBinding Foreground}"
+                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Margin="5,1,5,1" />
-                        <Path x:Name="Blackout" Opacity=".8" Visibility="Collapsed" Margin="3" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Red" Stretch="Fill"
-                              Data="M0.5,0.5L16.5,0.5L16.5,1.5L0.5,1.5z"/>
+                             Margin="5,1"   
+                            />
+                        <Path x:Name="Blackout" Opacity=".8" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Red" Stretch="Fill"
+                              Data="M0,0L14,0L14,1L4,1z"/>
                         <Rectangle x:Name="DayButtonFocusVisual" Visibility="Collapsed" IsHitTestVisible="false" Stroke="{DynamicResource Accent}"/>
                     </Grid>
-                    
+
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="True">
                             <Setter TargetName="DayButtonFocusVisual" Property="Visibility" Value="Visible" />
@@ -217,13 +223,13 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    <!--选择年/月的大按钮-->
   <Style TargetType="p:CalendarButton" >
     <Setter Property="Background" Value="Transparent"/>
     <Setter Property="Foreground" Value="{DynamicResource ButtonText}" />
-    <Setter Property="MinWidth" Value="40"/>
-    <Setter Property="MinHeight" Value="42"/>
-    <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}"/>
+    <Setter Property="MinWidth" Value="44"/>
+    <Setter Property="MinHeight" Value="46"/>
+        <Setter Property="FontSize" Value="{DynamicResource DefaultCalendarFontSize}"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
     <Setter Property="VerticalContentAlignment" Value="Center"/>
     <Setter Property="FocusVisualStyle" Value="{x:Null}" />

@@ -38,6 +38,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -47,7 +49,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobleResources.cs" />
+    <Compile Include="Windows\Automation\CalendarAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\CalendarButtonAutomationPeer.cs" />
+    <Compile Include="Windows\Automation\CalendarDayButtonAutomationPeer.cs" />
+    <Compile Include="Windows\Controls\Calendar.cs" />
+    <Compile Include="Windows\Controls\CalendarBlackoutDatesCollection.cs" />
+    <Compile Include="Windows\Controls\CalendarButton.cs" />
+    <Compile Include="Windows\Controls\CalendarDateChangedEventArgs.cs" />
+    <Compile Include="Windows\Controls\CalendarDateRange.cs" />
+    <Compile Include="Windows\Controls\CalendarDateRangeChangingEventArgs.cs" />
+    <Compile Include="Windows\Controls\CalendarDayButton.cs" />
+    <Compile Include="Windows\Controls\CalendarItem.cs" />
+    <Compile Include="Windows\Controls\CalendarMode.cs" />
+    <Compile Include="Windows\Controls\CalendarModeChangedEventArgs.cs" />
+    <Compile Include="Windows\Controls\CalendarSelectionChangedEventArgs.cs" />
+    <Compile Include="Windows\Controls\CalendarSelectionMode.cs" />
+    <Compile Include="Windows\Controls\DatePickerDateValidationErrorEventArgs.cs" />
+    <Compile Include="Windows\Controls\DatePickerFormat.cs" />
+    <Compile Include="Windows\Controls\DatePickerTextBox.cs" />
+    <Compile Include="Windows\Controls\DateTimeHelper.cs" />
+    <Compile Include="Windows\Controls\DatePicker.cs" />
+    <Compile Include="Windows\Controls\KeyboardHelper.cs" />
+    <Compile Include="Windows\Controls\SelectedDatesCollection.cs" />
+    <Compile Include="Windows\Controls\VisualStates.cs" />
     <Compile Include="Windows\Converters\RowBackgroundConverter.cs" />
+    <Compile Include="Windows\Automation\DatePickerAutomationPeer.cs" />
     <Compile Include="Windows\Validators\FrameworkElementValidator.cs" />
     <Compile Include="Windows\Controls\DataGridCheckBoxColumn.cs" />
     <Compile Include="Windows\Controls\DataGridComboBoxColumn.cs" />
@@ -83,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\DatePicker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

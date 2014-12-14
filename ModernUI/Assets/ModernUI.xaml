@@ -35,6 +35,7 @@
         <ResourceDictionary Source="ContextMenu.xaml" />
         <ResourceDictionary Source="ComboBox.xaml" />
         <ResourceDictionary Source="DataGrid.xaml" />
+        <ResourceDictionary Source="DatePicker.xaml" />
         <ResourceDictionary Source="GridSplitter.xaml" />
         <ResourceDictionary Source="Label.xaml" />
         <ResourceDictionary Source="RadioButton.xaml" />
@@ -51,7 +52,8 @@
 
     <!-- font settings -->
     <FontFamily x:Key="DefaultFontFamily">Microsoft YaHei UI</FontFamily>
-    <sys:Double x:Key="DefaultFontSize">13</sys:Double>
+    <sys:Double x:Key="DefaultFontSize">12</sys:Double>
+    <sys:Double x:Key="DefaultCalendarFontSize">12</sys:Double>
 
     <FontFamily x:Key="DefaultTableFontFamily">Microsoft YaHei UI</FontFamily>
     <sys:Double x:Key="DefaultTableFontSize">12</sys:Double>

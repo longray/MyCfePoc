@@ -6,6 +6,8 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorder}" />
         <Setter Property="Foreground" Value="{DynamicResource WindowText}" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type CheckBox}">
@@ -16,7 +18,7 @@
                                 <Rectangle x:Name="Indeterminate" Width="8" Height="8" Margin="4" Fill="{TemplateBinding Foreground}" Visibility="Hidden"/>
                             </Grid>
                         </Border>
-                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" />
+                        <TextBlock Text="{TemplateBinding Content}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
                     </StackPanel>
                     <ControlTemplate.Triggers>
                         <MultiDataTrigger>

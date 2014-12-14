@@ -6,7 +6,7 @@
              xmlns:mui="clr-namespace:ModernUI.Windows.Controls;assembly=ModernUI"
              mc:Ignorable="d"
              
-             d:DesignHeight="730" d:DesignWidth="300">
+             d:DesignHeight="730" d:DesignWidth="313">
     <UserControl.Background>White</UserControl.Background>
     <UserControl.Resources>
         <ResourceDictionary>

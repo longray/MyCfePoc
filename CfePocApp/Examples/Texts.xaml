@@ -1,14 +1,15 @@
 ﻿<UserControl x:Class="CfePocApp.Examples.Texts"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d"
-             d:DesignHeight="730" d:DesignWidth="430"
-             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-             xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras"
-             xmlns:tk="http://schemas.microsoft.com/wpf/2008/toolkit"
-             DataContext="{Binding Texts, Source={StaticResource Locator}}">
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:ignore="http://www.ignore.com"
+                mc:Ignorable="d ignore"
+                d:DesignHeight="730" d:DesignWidth="430"
+                xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras"
+                xmlns:mui="clr-namespace:ModernUI.Windows.Controls;assembly=ModernUI"
+                DataContext="{Binding Texts, Source={StaticResource Locator}}">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,29 +19,26 @@
     </UserControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel HorizontalAlignment="Stretch">
-            <TextBlock Text="文本样式 | Text Styling" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
+            <TextBlock Text="文本样式 | Text Styling" Style="{StaticResource Heading2}" />
 
-            <TextBlock Text="农业银行 | Heading1" Style="{StaticResource Heading1}" Margin="0,0,0,8" />
-            <TextBlock Text="工作任务提示 | Heading2" Style="{StaticResource Heading2}" Margin="0,0,0,8"/>
-            <TextBlock Text="业绩一览 | title" Style="{StaticResource Title}" Margin="0,0,0,8" FontSize="16"/>
-            <TextBlock Text="您今天有2条营销活动提醒！ | Normal" Margin="0,0,0,8"/>
-            <TextBlock Text="绩效考核业绩 | Bold" Style="{StaticResource Bold}" Margin="0,0,0,8"/>
-            <TextBlock Text="88.76% ▲ 71.11% ▼ ￥1,234,567,890.00 | small" Style="{StaticResource Small}" Margin="0,0,0,8"/>
-            <TextBlock Text="支行未持有客户数量占比最低值 | SmallBold" Style="{StaticResource SmallBold}" Margin="0,0,0,8"/>
-            <TextBlock Text="88.76% ▲ 71.11% ▼ ￥1,234,567,890.00 | Fixed" Style="{StaticResource Fixed}" Margin="0,0,0,32"  />
+            <TextBlock Text="农业银行 | Heading1" Style="{StaticResource Heading1}"  />
+            <TextBlock Text="工作任务提示 | Heading2" Style="{StaticResource Heading2}" />
+            <TextBlock Text="业绩一览 | title" Style="{StaticResource Title}" />
+            <TextBlock Text="您今天有2条营销活动提醒！ | Normal" Style="{StaticResource Normal}"/>
+            <TextBlock Text="绩效考核业绩 | Bold" Style="{StaticResource Bold}" />
+            <TextBlock Text="88.76% ▲ 71.11% ▼ ￥1,234,567,890.00 | small" Style="{StaticResource Small}" />
+            <TextBlock Text="支行未持有客户数量占比最低值 | SmallBold" Style="{StaticResource SmallBold}" />
+            <TextBlock Text="88.76% ▲ 71.11% ▼ ￥1,234,567,890.00 | Fixed" Style="{StaticResource Fixed}"   />
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                <TextBlock Text="文本框、密码" Style="{StaticResource Heading2}" Margin="0,0,100,0"/>
-                <!--<Button Content="切换大小">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <command:EventToCommand Command="{Binding Path=ChangeFontSizeCommand}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>-->
-                <Button Content="切换大小" Command="{Binding Path=ChangeFontSizeCommand}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="文本框、密码" Style="{StaticResource Heading2}"/>
+                <Button Grid.Column="1" Content="切换大小" Command="{Binding Path=ChangeFontSizeCommand}" Margin="5,2" />
+            </Grid>
 
-            </StackPanel>
             <Grid DataContext="{Binding  Path=Texts}">
                 <Grid.Resources>
                     <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
@@ -70,7 +68,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label       Grid.Row="0" Grid.Column="0" Content="姓名：" />
-                <TextBox     Grid.Row="0" Grid.Column="1" Text="文本框"/>
+                <TextBox     Grid.Row="0" Grid.Column="1" Text="文本框" />
                 <Label       Grid.Row="1" Grid.Column="0" Content="自我介绍："/>
                 <TextBox     Grid.Row="1" Grid.Column="1" Text="只读的文本框" IsReadOnly="True" />
                 <Label       Grid.Row="2" Grid.Column="0" Content="职务："/>
@@ -100,7 +98,7 @@
 
             <StackPanel>
                 <TextBlock Text="弹出式菜单 | 右键菜单" Style="{StaticResource Heading2}" />
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" >
                     <StackPanel.Resources>
                         <!--有问题，无法使用事件绑定-->
                         <!--<ContextMenu x:Key="PopContextMenu1">
@@ -119,24 +117,24 @@
                             </MenuItem>
                         </ContextMenu>-->
                         <Style  TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
-                            <Setter Property="Margin" Value="20,5"/>
+                            <Setter Property="Margin" Value="10,5"/>
                         </Style>
                         <Style  TargetType="Button" BasedOn="{StaticResource Button}">
-                            <Setter Property="Margin" Value="20,5"/>
+                            <Setter Property="Margin" Value="10,5"/>
                         </Style>
                     </StackPanel.Resources>
                     <!--<Button Content="(XAML)菜单" Margin="20,5" Command="{Binding PopMenuCommand1}" CommandParameter="{StaticResource PopContextMenu1}" />-->
-                    <TextBox Name="TextBoxForMenu" Text="{Binding Texts.TextForMenu, Mode=TwoWay}"></TextBox>
+                    <TextBox Name="TextBoxForMenu" Text="{Binding Texts.TextForMenu, Mode=TwoWay}" VerticalContentAlignment="Center" ></TextBox>
                     <Button Content="(代码)菜单" Command="{Binding PopMenuCommand2}" CommandParameter="{Binding Text ,ElementName=TextBoxForMenu}" />
                 </StackPanel>
             </StackPanel>
 
             <StackPanel>
-                <tk:Calendar Background="White">
-                    <tk:Calendar.BlackoutDates>
-                        <tk:CalendarDateRange Start="2014/12/12" End="2014/12/20" />
-                    </tk:Calendar.BlackoutDates>
-                </tk:Calendar>
+                <mui:Calendar Background="White" HorizontalAlignment="Left" Margin="10,5" >
+                    <mui:Calendar.BlackoutDates>
+                        <mui:CalendarDateRange Start="2014/12/6" End="2014/12/7" />
+                    </mui:Calendar.BlackoutDates>
+                </mui:Calendar>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

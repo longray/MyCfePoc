@@ -1,0 +1,10 @@
+﻿<Window x:Class="CfePocApp.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:examples="clr-namespace:CfePocApp.Examples"
+        Title="Window1" Height="900" Width="900">
+    <Grid>
+        <examples:Texts/>
+            
+    </Grid>
+</Window>
